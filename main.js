@@ -10,6 +10,11 @@ const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // get token in BotFather Telegram
 
+bot.on('text', async nino => {
+  let body = nino.update.message.text || ''
+  let id = body
+  const userName = nino.message.from.username
+
 // Please don't delete the credit :)
 
 function sendStart(ctx) {
@@ -230,11 +235,6 @@ bot.command("eval", async (msg) => {
 		msg.reply(require('util').format(e))
 	}
 })
-
-bot.on('text', async nino => {
-  let body = nino.update.message.text || ''
-  let id = body
-  const userName = nino.message.from.username
 
   // log
   console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
