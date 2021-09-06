@@ -1,7 +1,7 @@
 {
-    "name": "nHentai-project",
+    "name": "TeleBot",
     "version": "0.0.1",
-    "description": "project nhentai",
+    "description": "ga ada",
     "main": "main.js",
     "directories": {
         "test": "test"
@@ -10,9 +10,7 @@
         "axios": "^0.21.1",
         "chalk": "*",
         "fs": "*",
-        "image-to-pdf": "*",
         "moment-timezone": "*",
-        "nhentai": "*",
         "os": "*",
         "performance-now": "*",
         "request": "*",
@@ -26,17 +24,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mccnlight/nHentai-project.git"
+        "url": "git+https://github.com/Nino-chan02/TeleBot.git"
     },
     "keywords": [
         "bot tele",
         "nhentai",
         "doujin"
     ],
-    "author": "lintod",
+    "author": "Nino",
     "licensi": "MIT",
     "bugs": {
-        "url": "https://github.com/mccnlight/nHentai-project.git"
+        "url": "https://github.com/Nino-chan02/TeleBot.git"
     },
-    "homepage": "https://github.com/mccnlight/nHentai-project.git"
+    "homepage": "https://github.com/Nino-chan02/TeleBot.git"
 }
