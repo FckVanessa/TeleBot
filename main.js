@@ -10,7 +10,7 @@ const moment = require("moment-timezone");
 moment.tz.setDefault("Asia/Jakarta").locale("id");
 const { Telegraf } = require("telegraf");
 
-const bot = new Telegraf("1929357866:AAHIp1ukgjz50AFhCzXedn17JzZMModXsus"); // get token in BotFather Telegram
+const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // get token in BotFather Telegram
 
 // Please don't delete the credit :)
 
@@ -20,7 +20,7 @@ function sendStart(ctx) {
       reply_markup: {
         inline_keyboard: [
           [{
-            text: 'Owner ♥️', url: 'http://t.me/akkun0307'
+            text: 'Owner ♥️', url: 'http://t.me/Nino_chann'
           },
             {
               text: 'Source Code 💻', url: 'https://github.com/mccnlight/nHentai-project'
@@ -40,8 +40,9 @@ function sendMenu(ctx){
 	menu += `Menu Bot\n`
 	menu += `• /ytmp4\n`
 	menu += `• /ytmp3\n`
-	menu += `• /play\n\n`
-	menu += `Made with ❤️ by @akkun0307`
+	menu += `• /play\n`
+        menu += `• /ping\n\n`
+	menu += `Made with ❤️ by @Nino`
 	bot.telegram.sendMessage(ctx.chat.id, menu)
 }
 
@@ -102,7 +103,7 @@ bot.command("ytmp3", async (ctx) => {
 		ctx.reply("Please enter a link, an example /ytmp3 https://www.youtube.com/watch?v=U5TkJ2HhMEw&list=RDen9KJdbrZj0&index=27")
 	}else{
 		ctx.reply("Wait, the bot is being searched")
-		res = await axios.get("https://api.zeks.xyz/api/ytmp3/2?apikey=Nyarlathotep&url=" + args[0])
+		res = await axios.get("https://api.zeks.me/api/ytmp3/2?apikey=Nyarlathotep&url=" + args[0])
 		data = res.data.result
 	if(!data){
 		ctx.reply("Music not found")
@@ -129,7 +130,7 @@ bot.command("ytmp4", async (ctx) => {
 		ctx.reply("Please enter a link, an example /ytmp4 https://www.youtube.com/watch?v=U5TkJ2HhMEw&list=RDen9KJdbrZj0&index=27")
 	}else{
 		ctx.reply("Wait, the bot is being searched")
-		res = await axios.get("https://api.zeks.xyz/api/ytmp4/2?apikey=Nyarlathotep&url=" + args[0])
+		res = await axios.get("https://api.zeks.me/api/ytmp4/2?apikey=Nyarlathotep&url=" + args[0])
 		data = res.data.result
 	if(!data){
 		ctx.reply("Video not found")
@@ -222,7 +223,7 @@ bot.on('text', async lintod => {
       const array_page = doujin.pages
       const title = doujin.titles.pretty
       
-      res = await axios.get("http://lolhuman.herokuapp.com/api/nhentai/" + id + "?apikey=genbotkey")
+      res = await axios.get("http://lolhuman.herokuapp.com/api/nhentai/" + id + "?apikey=https://github.com/BlackAmda")
       data = res.data.result
       caption = `${data.title_romaji}\n\n`
       caption += `${data.title_native}\n\n`
