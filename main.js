@@ -237,14 +237,8 @@ bot.command("eval", async (msg) => {
 })
 
   // log
-  console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
+   console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
 
-  if (body && !body.match(/^[0-9]/)) {
-  simih = await axios.get("https://zenzapi.xyz/api/simih?text=" + encodeURI(body) + "&apikey=Nyarlathotep")
-  await nino.reply(simih.data.result.message);
-  }
-})
-
-bot.launch()
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+   bot.launch()
+   process.once('SIGINT', () => bot.stop('SIGINT'));
+   process.once('SIGTERM', () => bot.stop('SIGTERM'));
