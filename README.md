@@ -1,5 +1,3 @@
-# Telegram Bot
-
 ### Dokumentasi Telegraf
 
 [Klik di sini!](https://telegraf.js.org/)
