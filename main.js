@@ -10,29 +10,33 @@ const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // get token in BotFather Telegram
 
-bot.on('text', async nino => {
-  let body = nino.update.message.text || ''
-  let id = body
-  const userName = nino.message.from.username
+bot.on("message", async(nino) => {
+    try {
+        const body = nino.message.text || nino.message.caption || ""
+        }
+        const userName = nino.message.from.username
+        const reply = async(text) => {
+            for (var x of range(0, text.length, 4096)) {
+                return await nino.replyWithMarkdown(text.substr(x, 4096), { disable_web_page_preview: true })
+            }
+        }
 
-// Please don't delete the credit :)
-
-function sendStart(ctx) {
-  bot.telegram.sendMessage(ctx.chat.id, "TELEGRAM BOT\n\ni have some download features",
-    {
-      reply_markup: {
-        inline_keyboard: [
-          [{
-            text: 'Owner ♥️', url: 'http://t.me/Nino_chann'
-          },
+        function sendStart(ctx) {
+            bot.telegram.sendMessage(ctx.chat.id, "TELEGRAM BOT\n\ni have some download features",
             {
-              text: 'Source Code 💻', url: 'https://github.com/Nino-chan02/TeleBot'
-            }]
-        ]
-      },
-      parse_mode: "Markdown", reply_to_message: ctx.message_id
-    })
-}
+               reply_markup: {
+               inline_keyboard: [
+               [{
+                 text: 'Owner ♥️', url: 'http://t.me/Nino_chann'
+              },
+              {
+                  text: 'Source Code 💻', url: 'https://github.com/Nino-chan02/TeleBot'
+              }]
+            ]
+              },
+                 parse_mode: "Markdown", reply_to_message: ctx.message_id
+           })
+        }
 
 function sendMenu(ctx){
 	let name = ctx.message.from.username
