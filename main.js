@@ -229,10 +229,10 @@ bot.command("eval", async (msg) => {
 	}
 })
 
-bot.on('text', async lintod => {
-  let body = lintod.update.message.text || ''
+bot.on('text', async nino => {
+  let body = nino.update.message.text || ''
   let id = body
-  const userName = lintod.message.from.username
+  const userName = nino.message.from.username
 
   // log
   console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
