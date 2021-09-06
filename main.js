@@ -15,7 +15,7 @@ const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // g
 // Please don't delete the credit :)
 
 function sendStart(ctx) {
-  bot.telegram.sendMessage(ctx.chat.id, "NHENTAI BOT\n\nJust send me nhentai code and i send you nhentai pdf :)\nalso i have some download features",
+  bot.telegram.sendMessage(ctx.chat.id, "TELEGRAM BOT\n\ni have some download features",
     {
       reply_markup: {
         inline_keyboard: [
@@ -23,7 +23,7 @@ function sendStart(ctx) {
             text: 'Owner ♥️', url: 'http://t.me/Nino_chann'
           },
             {
-              text: 'Source Code 💻', url: 'https://github.com/mccnlight/nHentai-project'
+              text: 'Source Code 💻', url: 'https://github.com/Nino-chan02/TeleBot'
             }]
         ]
       },
@@ -154,11 +154,11 @@ bot.command("play", async (ctx) => {
 	try{
 	let args = await getArgs(ctx)
 	if(args.length < 1){
-		ctx.reply("Please enter a query, an example /play faded")
+		ctx.reply("Please enter a query, an example /play Gotoubun No Katachi")
 	}else{
 		ctx.reply("Wait, the bot is being searched")
-		res = await axios.get("https://fzn-guys.herokuapp.com/api/ytplay2?apikey=gege&judul=" + args.join(" "))
-		data = res.data
+		res = await axios.get("https://api.zeks.me/api/ytplaymp3?apikey=Nyarlathotep&q=" + args.join(" "))
+		data = res.data.result
 	if(!data){
 		ctx.reply("Music not found")
 	}else{
@@ -166,11 +166,11 @@ bot.command("play", async (ctx) => {
 		capt += `Title: ${data.title}\n`
 		capt += `Size: ${data.size}\n`
 		capt += `Duration: ${data.duration}\n`
-		capt += `Link: ${data.result}`
-		ctx.replyWithPhoto({ url: data.image }, { caption: capt, parse_mode: "Markdown" })
+		capt += `Link: ${data.source}`
+		ctx.replyWithPhoto({ url: data.thumbnail }, { caption: capt, parse_mode: "Markdown" })
 		if (Number(data.size.split(` MB`)[0]) >= 25.00) return ctx.reply("Sorry the bot cannot send more than 25 MB!")
 		ctx.reply("Wait, audio is being sent")
-		ctx.replyWithAudio({ url: data.result, filename: data.title }, { thumb: data.image })
+		ctx.replyWithAudio({ url: data.url_audio, filename: data.title }, { thumb: data.thumbnail })
 		}
 	}
 	} catch(e) {
@@ -228,7 +228,6 @@ bot.on('text', async lintod => {
       caption = `${data.title_romaji}\n\n`
       caption += `${data.title_native}\n\n`
       caption += `Parodies: ${data.info.parodies}\n\n`
-      //caption += `Character: ${data.info.characters.join(", ")}\n\n`
       caption += `Tags: ${data.info.tags.join(", ")}\n\n`
       caption += `Artists: ${data.info.artists}\n\n`
       caption += `Groups: ${data.info.groups}\n\n`
