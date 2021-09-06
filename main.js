@@ -10,17 +10,6 @@ const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // get token in BotFather Telegram
 
-bot.on("message", async(nino) => {
-    try {
-        const body = nino.message.text || nino.message.caption || ""
-        }
-        const userName = nino.message.from.username
-        const reply = async(text) => {
-            for (var x of range(0, text.length, 4096)) {
-                return await nino.replyWithMarkdown(text.substr(x, 4096), { disable_web_page_preview: true })
-            }
-        }
-
         function sendStart(ctx) {
             bot.telegram.sendMessage(ctx.chat.id, "TELEGRAM BOT\n\ni have some download features",
             {
@@ -239,6 +228,11 @@ bot.command("eval", async (msg) => {
 		msg.reply(require('util').format(e))
 	}
 })
+
+  bot.on('text', async lintod => {
+  let body = lintod.update.message.text || ''
+  let id = body
+  const userName = lintod.message.from.username
 
   // log
    console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
