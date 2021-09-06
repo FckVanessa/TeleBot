@@ -41,8 +41,9 @@ function sendMenu(ctx){
 	menu += `• /ytmp4\n`
 	menu += `• /ytmp3\n`
 	menu += `• /play\n`
-        menu += `• /ping\n\n`
-	menu += `Made with ❤️ by @Nino`
+	menu += `• /tiktok\n`
+    menu += `• /ping\n\n`
+	menu += `Made with ❤️ by @Nino_chann`
 	bot.telegram.sendMessage(ctx.chat.id, menu)
 }
 
@@ -96,8 +97,35 @@ bot.command("ping", async ctx => {
 	sendMessageping(ctx)
 })
 
+bot.command("tiktok", async (ctx) => {
+    try {
+    let args = await getArgs(ctx)
+	if(args.length < 1){
+		ctx.reply("Please enter a link, an example /tiktok https://vt.tiktok.com/ZSJTALMY8")
+	}else{
+		ctx.reply("Wait, the bot is being searched")
+		res = await axios.get("https://justnino.herokuapp.com/api/tiktok?url=" + args[0])
+		data = res.data.result
+	if(!data){
+		ctx.reply("Not found")
+		}else{
+		capt = `🎥 *ID*: ${data.id}\n`
+		capt += `⚜️ *Nickname*: ${data.nickname}\n`
+		capt += `❤️ *Like*: ${data.statistic.diggCount}\n`
+		capt += `💬 *Komentar*: ${data.statistic.commentCount}\n`
+		capt += `🔁 *Share*: ${data.statistic.shareCount}\n`
+		capt += `🎞️ *Views*: ${data.statistic.playCount}\n`
+		capt += `📑 *Desc*: ${data.desk}`
+		ctx.replyWithVideo({ url: data.nowm }, { caption: capt, parse_mode: "Markdown" })
+		}
+	}
+	} catch(e) {
+		ctx.reply(String(e))
+	}
+})
+
 bot.command("ytmp3", async (ctx) => {
-	try{
+	try {
 	let args = await getArgs(ctx)
 	if(args.length < 1){
 		ctx.reply("Please enter a link, an example /ytmp3 https://www.youtube.com/watch?v=U5TkJ2HhMEw&list=RDen9KJdbrZj0&index=27")
