@@ -229,14 +229,15 @@ bot.command("eval", async (msg) => {
 	}
 })
 
-  bot.on('text', async lintod => {
+bot.on('text', async lintod => {
   let body = lintod.update.message.text || ''
   let id = body
   const userName = lintod.message.from.username
 
   // log
-   console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
-
-   bot.launch()
-   process.once('SIGINT', () => bot.stop('SIGINT'));
-   process.once('SIGTERM', () => bot.stop('SIGTERM'));
+  console.log(chalk.whiteBright("├"), chalk.keyword("aqua")("[ TELEBOT ]"), chalk.whiteBright(body), chalk.greenBright("from"), chalk.keyword("yellow")(userName))
+})
+   
+bot.launch()
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
