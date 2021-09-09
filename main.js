@@ -16,7 +16,7 @@ const bot = new Telegraf("1927381289:AAFpviZRw2a_xP6evuR2IqhWuHP_HzHYk1Q"); // g
                reply_markup: {
                inline_keyboard: [
                [{
-                 text: 'Owner ♥️', url: 'http://t.me/Nino_chann'
+                 text: 'Owner ♥️', url: 'http://t.me/'
               },
               {
                   text: 'Source Code 💻', url: 'https://github.com/Nino-chan02/TeleBot'
